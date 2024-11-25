@@ -16,16 +16,12 @@ public class Rental {
     }
 
     public double getCharge() {
-        // Now delegate the charge calculation to Movie class
+        // Delegate charge calculation to Movie class
         return _movie.getCharge(_daysRented);
     }
 
-    // Extracted and moved method
     public int getFrequentRenterPoints() {
-        // Check if the movie is a new release and rented for more than 1 day
-        if (_movie.getPriceCode() == Movie.NEW_RELEASE && _daysRented > 1) {
-            return 2; // Bonus points
-        }
-        return 1; // Regular points
+        // Now delegate the frequent renter points calculation to Movie class
+        return _movie.getFrequentRenterPoints(_daysRented);
     }
 }
